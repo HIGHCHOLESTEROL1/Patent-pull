@@ -2,42 +2,61 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image
 
-def main():
-    ## html data
-    url = input("Enter Patent link: ")
-    response = requests.get(url, auth = ('user', 'pass'), encoding = 'utf-8')
-    ## parse the html data
-    soup = BeautifulSoup(response.text, 'html.parser', encoding = 'utf-8')
-    write(soup)
-
-
 ## soup text in external file
-def write(soup):
-    f = open("htmlData.txt", 'w', encoding = 'utf-8')
-    f.write(soup.text)
-    f.close()
+def write(soup, response):
+    g = open('htmlData.txt', 'w', encoding = 'utf-8')
+    g.write(soup.prettify())
+    g.close()
 
 ## print the Patent number
 def patentNum(soup):
     patentNum = soup.find('meta', attrs ={'name': 'citation_patent_number'})
-    print("PatentNum : " + patentNum.get('content'))
+    if patentNum:
+        print("PatentNum : " + patentNum.get('content'))
 
-## country of orgin
+## print country of orgin
 def countryOrgin(soup):
     country = soup.find('dd', attrs = {'itemprop': 'countryName'})
-    print("Country of orgin : "  + country.text)
+    if country:
+        print("Country of orgin : "  + country.text)
 
 
-## print all the founders
+## print all the founders and asignee of the patent
 def founders(soup):
     founders = soup.find_all('meta', attrs={'name': 'DC.contributor'})
-    #<meta name="DC.contributor" content="Bartley K. Andre" scheme="inventor">
     print("Inventors: ")
+    # iterate over all inventors and print
     for founder in founders:
         if founder.get('scheme') == "inventor":
             name = founder.get('content')
-            print(name)
-
+            if name:
+                print(name)
         else:
-            print("Current Company assignee: " + founder.get('content'))
+            # prints the company assignee once reached
+            company = founder.get('content')
+            if founder:
+                print("Current Company assignee: " + founder)
 
+## name of patent
+def name(soup):
+    name = soup.find('span', attrs = {'itemprop' : 'title'})
+    if name:
+        print(name.string)
+
+## status of the patent
+def status(soup):
+    ## find status
+    status = soup.find('span', attrs = {'itemprop' : 'status'})
+    if status:
+        print(status.string)
+
+
+def main():
+    ## html data
+    url = input("Enter Patent link: ")
+    response = requests.get(url)
+    ## parse the html data
+    soup = BeautifulSoup(response.content, 'html.parser')
+    #write(soup, response); patentNum(soup); countryOrgin(soup); founders(soup);
+    status(soup); name(soup)
+main()
