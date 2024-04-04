@@ -35,28 +35,29 @@ def founders(soup):
             # prints the company assignee once reached
             company = founder.get('content')
             if founder:
-                print("Current Company assignee: " + founder)
+                print("Current Company assignee: " + company)
 
 ## name of patent
 def name(soup):
     name = soup.find('span', attrs = {'itemprop' : 'title'})
     if name:
-        print(name.string)
+        print('Name: '+ name.string)
 
 ## status of the patent
 def status(soup):
     ## find status
     status = soup.find('span', attrs = {'itemprop' : 'status'})
     if status:
-        print(status.string)
+        print('Status: ' + status.string)
 
+##
 
 def main():
     ## html data
     url = input("Enter Patent link: ")
+    print(' ')
     response = requests.get(url)
     ## parse the html data
     soup = BeautifulSoup(response.content, 'html.parser')
-    #write(soup, response); patentNum(soup); countryOrgin(soup); founders(soup);
-    status(soup); name(soup)
+    name(soup); patentNum(soup); countryOrgin(soup); status(soup); founders(soup);
 main()
