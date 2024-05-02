@@ -20,6 +20,9 @@ Consideration:
     - Build a user-friendly web interface where users can input search queries, view patent details, and explore visualizations.
     - Consider using a front-end framework (e.g., React, Vue.js) to enhance the user experience.
 
+5. Look more into javafx documentation to potentially implement a GUI for it. Learned it somewhat in class and seems very simple to utilize.
+Could potentially seek to do this rather something like react which I did not learn yet. Not final descisions yet but for now just a idea.
+
 5. Write Documentation:
     - write clear documentation including installation instruction and usage guidelines
     - set up test to validate functionality
