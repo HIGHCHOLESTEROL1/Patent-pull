@@ -59,5 +59,7 @@ def main():
     response = requests.get(url)
     ## parse the html data
     soup = BeautifulSoup(response.content, 'html.parser')
-    name(soup); patentNum(soup); countryOrgin(soup); status(soup); founders(soup);
+    f = open("data.txt", 'w')
+    f.write(name(soup); patentNum(soup); countryOrgin(soup); status(soup); founders(soup))
+    f.close()
 main()
