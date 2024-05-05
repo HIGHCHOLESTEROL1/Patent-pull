@@ -12,43 +12,49 @@ def write(soup, response):
 def patentNum(soup):
     patentNum = soup.find('meta', attrs ={'name': 'citation_patent_number'})
     if patentNum:
-        print("PatentNum : " + patentNum.get('content'))
+        return ("PatentNum : " + patentNum.get('content') + "\n")
+    return "PatentNum : None"
 
 ## print country of orgin
 def countryOrgin(soup):
     country = soup.find('dd', attrs = {'itemprop': 'countryName'})
     if country:
-        print("Country of orgin : "  + country.text)
+        return ("Country of orgin : "  + country.text + "\n")
+    return "Country of orgin : None"+ "\n"
 
 
 ## print all the founders and asignee of the patent
 def founders(soup):
     founders = soup.find_all('meta', attrs={'name': 'DC.contributor'})
-    print("Inventors: ")
+    result  = "Inventors:\n"
     # iterate over all inventors and print
     for founder in founders:
         if founder.get('scheme') == "inventor":
             name = founder.get('content')
             if name:
-                print(name)
+                result += (name+ "\n")
         else:
             # prints the company assignee once reached
             company = founder.get('content')
             if founder:
-                print("Current Company assignee: " + company)
+                result += ("Current Company assignee: " + company + "\n")
+
+    return result
 
 ## name of patent
 def name(soup):
     name = soup.find('span', attrs = {'itemprop' : 'title'})
     if name:
-        print('Name: '+ name.string)
+        return ('Name: '+ name.string+ "\n")
+    return "Name: None"+ "\n"
 
 ## status of the patent
 def status(soup):
     ## find status
     status = soup.find('span', attrs = {'itemprop' : 'status'})
     if status:
-        print('Status: ' + status.string)
+        return ('Status: ' + status.string + "\n")
+    return "Status: None"+ "\n"
 
 ##
 
@@ -59,7 +65,11 @@ def main():
     response = requests.get(url)
     ## parse the html data
     soup = BeautifulSoup(response.content, 'html.parser')
-    f = open("data.txt", 'w')
-    f.write(name(soup); patentNum(soup); countryOrgin(soup); status(soup); founders(soup))
+    f = open("data/data.txt", 'w', encoding="utf-8")
+    f.write(name(soup))
+    f.write(patentNum(soup))
+    f.write(countryOrgin(soup))
+    f.write(status(soup))
+    f.write(founders(soup))
     f.close()
 main()
