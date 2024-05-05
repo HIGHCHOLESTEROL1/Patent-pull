@@ -1,6 +1,4 @@
-import requests
 from bs4 import BeautifulSoup
-from PIL import Image
 
 ## soup text in external file
 def write(soup, response):
@@ -55,21 +53,3 @@ def status(soup):
     if status:
         return ('Status: ' + status.string + "\n")
     return "Status: None"+ "\n"
-
-##
-
-def main():
-    ## html data
-    url = input("Enter Patent link: ")
-    print(' ')
-    response = requests.get(url)
-    ## parse the html data
-    soup = BeautifulSoup(response.content, 'html.parser')
-    f = open("data/data.txt", 'w', encoding="utf-8")
-    f.write(name(soup))
-    f.write(patentNum(soup))
-    f.write(countryOrgin(soup))
-    f.write(status(soup))
-    f.write(founders(soup))
-    f.close()
-main()
