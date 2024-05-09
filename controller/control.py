@@ -7,23 +7,31 @@ from bs4 import BeautifulSoup
 import requests
 
 def getSearchData():
-    input_data = input("Enter product name / description: ").replace(" ", "+")
+    ## gather user input information
+    input_data = input("Enter product name / description: ")
     return input_data
 
 def control():
+    ## ask user for product name / idea first
     print("Q to quit")
     input_data = ""
+    ## set chrome browser
+    browser = webdriver.Chrome()
+    browser.get("https://patents.google.com/")
+    ## repeatdely ask user for producst and displaying on browser until quit
     while (input_data.lower() != "q"):
+        ## search user input data
         input_data = getSearchData()
-        browser = webdriver.Chrome()
-        browser.get("https://patents.google.com/")
         elem = browser.find_element(By.NAME, 'q')
-        elem.send_keys(input_data, Keys.ARROW_DOWN)
+        elem.clear()
+        elem.send_keys(input_data)
+        ## click search button
         search = browser.find_element(By.ID, 'searchButton')
-        search.send_keys(Keys.ENTER)
-
-        print("Here is a selection of products to your description: \n")
+        search.click()
+    ## exit once quit is input
     exit()
 
 control()
+
+
 
