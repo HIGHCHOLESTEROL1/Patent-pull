@@ -19,7 +19,8 @@ def control():
         browser.get("https://patents.google.com/")
         elem = browser.find_element(By.NAME, 'q')
         elem.send_keys(input_data, Keys.ARROW_DOWN)
-
+        search = browser.find_element(By.ID, 'searchButton')
+        search.send_keys(Keys.ENTER)
 
         print("Here is a selection of products to your description: \n")
     exit()
