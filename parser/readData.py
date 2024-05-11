@@ -1,4 +1,4 @@
-import scrapper
+import Scrapper
 from bs4 import BeautifulSoup
 import requests
 
