@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,6 +17,14 @@ import javafx.scene.text.Text;
 import javafx.scene.control.ScrollPane;
 
 public class Display extends Application{
+    private String product;
+    private String description;
+    private String userInput;
+    private ArrayList<String> founders;
+    private String patentNum;
+    private String orgin;
+    private String status;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         
