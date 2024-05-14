@@ -1,15 +1,16 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class Product{
     private String product;
     private String description;
-    private ArrayList<String> founders;
+    private Map<String, ArrayList<String>> founders;
     private String patentNum;
     private String orgin;
     private String status;
-    private String company;
 
     public Product(){
         product = "none";
@@ -26,22 +27,22 @@ public class Product{
         return product;
     }
     public String getDesc(){
-        return product;
+        return description;
     }
-    public String getProductName(){
-        return product;
+    public ArrayList<String> getFounders(String company){
+        return founders.get(company);
     }
-    public String getProductName(){
-        return product;
+    public Set<String> getCompany(){
+        return founders.keySet();
     }
-    public String getProductName(){
-        return product;
+    public String getOrgin(){
+        return orgin;
     }
-    public String getProductName(){
-        return product;
+    public String getPatentNum(){
+        return patentNum;
     }
-    public String getProductName(){
-        return product;
+    public String getStatus(){
+        return status;
     }
 
     public void setDescription(String d){
@@ -50,10 +51,10 @@ public class Product{
     public void setStatus(String s){
         status = s;
     }
-    public void addFounder(String name){
-        founders.add(name);
-    }
-    public void setCompany(String comp){
-        company = comp;
+    public void addFounder(String company, String name){
+        if (founders.get(company) == null){
+            founders.put(company, new ArrayList<String>());
+        }
+        founders.get(company).add(name);
     }
 }
