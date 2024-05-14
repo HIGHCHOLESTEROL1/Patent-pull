@@ -43,7 +43,7 @@ def founders(soup):
 def name(soup):
     name = soup.find('span', attrs = {'itemprop' : 'title'})
     if name:
-        return ('Name: '+ name.string+ "\n")
+        return ('Name: '+ name.string.strip().replace('\n', '') + "\n")
     return "Name: None"+ "\n"
 
 ## status of the patent
