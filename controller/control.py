@@ -1,5 +1,3 @@
-from lib2to3.pgen2 import driver
-from mechanize import Browser
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -22,6 +20,8 @@ def control():
     while (input_data.lower() != "q"):
         ## search user input data
         input_data = getSearchData()
+        if input_data.lower() == "q":
+            exit()
         elem = browser.find_element(By.NAME, 'q')
         elem.clear()
         elem.send_keys(input_data)
