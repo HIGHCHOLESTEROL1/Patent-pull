@@ -1,5 +1,7 @@
 import logo from './patentLogo.svg';
 import meImg from './me.jpg';
+import navigation from './Navigation_bar.js';
+import './Navigation_bar.css';
 import './App.css';
 import { Children } from 'react';
 
@@ -16,27 +18,20 @@ function MeDisplay(){
   );
 }
 
-function AboutUsButton(){
-  return(
-    <button>
-        About us
-    </button>
-  );
-}
-
 function App() {
   return (
     <div className="App">
+      <ul>
+          <li> <a href = {navigation.home}>Home</a></li>
+          <li> <a href = {navigation.github}>Github</a></li>
+          <li> <a href = {navigation.about}>About Us</a></li>
+          <li> <a href = {navigation.contact}>Contact Us</a></li>
+      </ul>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="Logo" />
         <h2>
           Patent Check
         </h2>
-        <p>
-          by {me.name}
-        </p>
-        <MeDisplay/>
-        <a href="https://github.com/HIGHCHOLESTEROL1/Patent-pull" target="_blank">GitHub</a>
       </header>
     </div>
   );
