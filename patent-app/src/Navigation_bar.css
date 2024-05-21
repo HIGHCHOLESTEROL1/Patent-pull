@@ -1,27 +1,23 @@
-ul{
+.header{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #F188DF
+    background-color: #F188DF;
+    display: flex;
+    justify-content: center;
 }
 
-li{
-    float: middle;
-}
-
-li a{
+a{
+    text-decoration: none;
+    color: white;
     display: block;
-    color : white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover:not(.active){
-    background-color: #F188DF
-}
 
-.active{
+a:hover{
     background-color: #984c93
 }

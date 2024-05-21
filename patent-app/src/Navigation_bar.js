@@ -1,7 +1,9 @@
 
 const navigation = {
-    home: "Home.asp",
+    home: "/",
     github: "https://github.com/HIGHCHOLESTEROL1/Patent-pull",
-    about : "About.asp",
-    contact: "Contact.asp"
+    about : "/",
+    contact: "/"
 };
+
+export default navigation;

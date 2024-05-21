@@ -3,6 +3,7 @@ import meImg from './me.jpg';
 import navigation from './Navigation_bar.js';
 import './Navigation_bar.css';
 import './App.css';
+import Content from './Content.js';
 import { Children } from 'react';
 
 const me = {
@@ -21,18 +22,13 @@ function MeDisplay(){
 function App() {
   return (
     <div className="App">
-      <ul>
-          <li> <a href = {navigation.home}>Home</a></li>
-          <li> <a href = {navigation.github}>Github</a></li>
-          <li> <a href = {navigation.about}>About Us</a></li>
-          <li> <a href = {navigation.contact}>Contact Us</a></li>
-      </ul>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="Logo" />
-        <h2>
-          Patent Check
-        </h2>
-      </header>
+      <div className="header">
+          <a href = {navigation.home}>Home</a>
+          <a href = {navigation.github}target="_blank" rel="noreferrer">Github</a>
+          <a href = {navigation.about}>About Us</a>
+          <a href = {navigation.contact}>Contact Us</a>
+      </div>
+      <Content></Content>
     </div>
   );
 }
