@@ -1,8 +1,9 @@
 import logo from './patentLogo.svg';
+import patentImg from './patent.svg';
 function Home(){
     return(
         <header className="App-header">
-        <img src={logo} className="App-logo" alt="Logo" />
+        <img src={patentImg} className="App-logo" alt="Logo" />
         <h2>
           Patent Check
         </h2>

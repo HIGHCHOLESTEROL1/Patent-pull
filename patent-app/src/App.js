@@ -1,4 +1,5 @@
 import logo from './patentLogo.svg';
+import patentImg from './patent.svg';
 import meImg from './me.jpg';
 import navigation from './Navigation_bar.js';
 import './Navigation_bar.css';
@@ -25,8 +26,8 @@ function App() {
       <div className="header">
           <a href = {navigation.home}>Home</a>
           <a href = {navigation.github}target="_blank" rel="noreferrer">Github</a>
-          <a href = {navigation.about}>About Us</a>
-          <a href = {navigation.contact}>Contact Us</a>
+          <a href = {navigation.about}>About</a>
+          <a href = {navigation.me}>Creator</a>
       </div>
       <Content></Content>
     </div>

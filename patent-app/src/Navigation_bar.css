@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #F188DF;
+    background-color: #69d9b0;
     display: flex;
     justify-content: center;
 }
@@ -17,7 +17,6 @@ a{
     text-decoration: none;
 }
 
-
 a:hover{
-    background-color: #984c93
+    background-color: #2bb093
 }
