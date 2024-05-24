@@ -1,5 +1,6 @@
 import logo from './patentLogo.svg';
 import patentImg from './patent.svg';
+import SearchBar from './SearchBar.js';
 function Home(){
     return(
         <header className="App-header">
@@ -7,6 +8,7 @@ function Home(){
         <h2>
           Patent Check
         </h2>
+        <SearchBar></SearchBar>
       </header>
     );
 }

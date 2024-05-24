@@ -1,5 +1,3 @@
-import logo from './patentLogo.svg';
-import patentImg from './patent.svg';
 import meImg from './me.jpg';
 import navigation from './Navigation_bar.js';
 import './Navigation_bar.css';
