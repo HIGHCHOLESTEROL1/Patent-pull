@@ -3,19 +3,20 @@
     padding: 6px;
     border: none;
     margin-top: 8px;
-    margin-right: 16px;
     font-size: 17px;
+    float: left;
   }
-button {
-    float: right;
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
+
+  .Bar button{
+    height: 34px;
+    padding: 5px;
+    margin-top: 7px;
   }
+
   button:hover {
     background: #ccc;
+  }
+  
+  .search-icon{
+    height : 22px;
   }

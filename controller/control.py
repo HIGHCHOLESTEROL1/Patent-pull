@@ -31,7 +31,5 @@ def control():
     ## exit once quit is input
     exit()
 
-control()
-
 
 

@@ -1,10 +1,15 @@
 import './SearchBar.css';
+import search_icon from './search_icon.svg';
+
+function call() {
+    alert("you clicked a button");
+}
 
 function SearchBar(){
     return(
         <div class = 'Bar'>
-            <button type="submit"><i class="fa fa-search"></i></button>
             <input type = "text" placeholder = "Search" name = "search"/>
+            <button class="submit" onClick = {call}><img src = {search_icon} className = "search-icon"></img></button>
         </div>
     )
 }
