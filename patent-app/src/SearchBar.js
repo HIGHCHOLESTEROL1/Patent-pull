@@ -1,8 +1,11 @@
 import './SearchBar.css';
 import search_icon from './search_icon.svg';
+import { spawn } from 'node:child_process';
+
+const y = require('child_process');
 
 function call() {
-    alert("you clicked a button");
+    const myProg = spawn('python', ['./controller/Control.py'])
 }
 
 function SearchBar(){
