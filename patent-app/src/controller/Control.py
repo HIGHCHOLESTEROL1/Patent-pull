@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import requests
+import json
+import sys
 
 def getSearchData():
     ## gather user input information
@@ -31,6 +33,4 @@ def control():
     ## exit once quit is input
     exit()
 
-control();
-
-
+control()

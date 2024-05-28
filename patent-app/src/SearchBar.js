@@ -4,8 +4,11 @@ import search_icon from './search_icon.svg';
 function call() {
     fetch('http://localhost:3001/run-python')
         .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            console.log('Response from Python: ${data}');
+        })
+        .catch(error => console.log('Error: ${error}')
+        );
 }
 
 function SearchBar(){
