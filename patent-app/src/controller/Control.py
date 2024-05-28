@@ -30,8 +30,7 @@ def control():
         search.click()
     ## exit once quit is input
     exit()
-    
-control()
 
+control();
 
 

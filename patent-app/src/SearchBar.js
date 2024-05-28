@@ -1,11 +1,11 @@
 import './SearchBar.css';
 import search_icon from './search_icon.svg';
-import { spawn } from 'node:child_process';
-
-const y = require('child_process');
 
 function call() {
-    const myProg = spawn('python', ['./controller/Control.py'])
+    fetch('http://localhost:3001/run-python')
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
 }
 
 function SearchBar(){
