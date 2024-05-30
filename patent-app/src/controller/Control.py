@@ -30,7 +30,10 @@ def control():
         ## click search button
         search = browser.find_element(By.ID, 'searchButton')
         search.click()
+        links = browser.find_elements(By.ID, 'link')
+        for link in links:
+            print(link.get_attribute('href'))
     ## exit once quit is input
     exit()
-
 control()
+
