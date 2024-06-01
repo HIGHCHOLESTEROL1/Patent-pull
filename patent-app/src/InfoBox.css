@@ -6,6 +6,13 @@ table th{
     padding: 14px 16px;
     text-decoration: none;
     padding: 20px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    border: 3px solid white;
 }
 
 table{
