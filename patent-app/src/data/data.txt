@@ -1,8 +1,6 @@
 Name: Support mechanism and system
-PatentNum : JP:6268657:B2
-Country of orgin : Japan
+PatentNum: JP:6268657:B2
+Country of orgin: Japan
 Status: Active
-Inventors:
-チェン、ジハン
-グオ、シャングアン
+Inventors: チェン、ジハン, グオ、シャングアン
 Current Company assignee: SZ DJI Osmo Technology Co Ltd

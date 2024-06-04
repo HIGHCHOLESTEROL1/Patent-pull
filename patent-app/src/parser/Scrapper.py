@@ -30,7 +30,7 @@ def founders(soup):
         if founder.get('scheme') == "inventor":
             name = founder.get('content')
             if name:
-                result += (name+ "\n")
+                result += (name+', ');
         else:
             # prints the company assignee once reached
             company = founder.get('content')
