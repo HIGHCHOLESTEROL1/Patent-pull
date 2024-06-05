@@ -22,6 +22,25 @@ app.get('/run-python', (req, res) => {
     });
 });
 
+app.get('/run-javaScript', (req, res) => {
+    const javaScriptProcess = spawn('javaScript',['./dataReader.js']);
+    
+    javaScriptProcess.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+        res.write(data);
+    });
+
+    javaScriptProcess.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+        res.write(data);
+    });
+
+    javaScriptProcess.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+        res.end(`child process exited with code ${code}`);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
