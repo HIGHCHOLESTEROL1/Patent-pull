@@ -3,7 +3,7 @@ const { spawn } = require('child_process');
 const app = express();
 const port = 3001; // Choose a port for your server
 
-app.get('/run-python', (req, res) => {
+app.get('/run-pythonController', (req, res) => {
     const pythonProcess = spawn('python', ['./controller/Control.py']);
 
     pythonProcess.stdout.on('data', (data) => {
@@ -22,20 +22,20 @@ app.get('/run-python', (req, res) => {
     });
 });
 
-app.get('/run-javaScript', (req, res) => {
-    const javaScriptProcess = spawn('javaScript',['./dataReader.js']);
+app.get('/run-pythonScraper', (req, res) => {
+    const pythonProcess = spawn('python',['./parser/readData.py']);
     
-    javaScriptProcess.on('data', (data) => {
+    pythonProcess.on('data', (data) => {
         console.log(`stdout: ${data}`);
         res.write(data);
     });
 
-    javaScriptProcess.on('data', (data) => {
+    pythonProcess.on('data', (data) => {
         console.error(`stderr: ${data}`);
         res.write(data);
     });
 
-    javaScriptProcess.on('close', (code) => {
+    pythonProcess.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
         res.end(`child process exited with code ${code}`);
     });

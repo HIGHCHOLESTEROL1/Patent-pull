@@ -14,3 +14,5 @@ def readData(url):
     f.write(Scrapper.status(soup))
     f.write(Scrapper.founders(soup))
     f.close()
+    
+readData('https://patents.google.com/patent/JP6268657B2/en?q=(mechanic+drone)&oq=mechanic+drone')

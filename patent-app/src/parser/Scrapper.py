@@ -24,18 +24,23 @@ def countryOrgin(soup):
 ## print all the founders and asignee of the patent
 def founders(soup):
     founders = soup.find_all('meta', attrs={'name': 'DC.contributor'})
-    result  = "Inventors:\n"
+    result  = "Inventors: "
     # iterate over all inventors and print
+    count = 0;
     for founder in founders:
         if founder.get('scheme') == "inventor":
             name = founder.get('content')
             if name:
-                result += (name+', ');
+                if count == 0:
+                    result += (name);
+                else:
+                    result += (", " + name);
+                count += 1;
         else:
             # prints the company assignee once reached
             company = founder.get('content')
-            if founder:
-                result += ("Current Company assignee: " + company + "\n")
+            if company:
+                result += ("\nCurrent Company assignee: " + company + "\n")
 
     return result
 

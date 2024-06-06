@@ -2,7 +2,7 @@ import './SearchBar.css';
 import search_icon from './search_icon.svg';
 
 function call() {
-    fetch('http://localhost:3001/run-python')
+    fetch('http://localhost:3001/run-pythonController')
         .then(response => response.text())
         .then(data => {
             console.log('Response from Python: ${data}');
@@ -11,7 +11,7 @@ function call() {
         );
 }
 function call2(){
-    fetch('http://localhost:3001/run-javaScript')
+    fetch('http://localhost:3001/run-pythonScraper')
         .then(response => response.text())
         .then(data => {
             console.log('Response from JavaScript: ${data}');

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import data from './dataReader';
 import './InfoBox.css';
 
 function InfoBox(){
