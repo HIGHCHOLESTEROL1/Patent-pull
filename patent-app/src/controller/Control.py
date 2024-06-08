@@ -24,15 +24,35 @@ def control():
         input_data = getSearchData()
         if input_data.lower() == "q":
             exit()
+
         elem = browser.find_element(By.NAME, 'q')
-        elem.clear()
-        elem.send_keys(input_data)
-        ## click search button
+        try:
+            elem.clear()
+            elem.send_keys(input_data)
+        except:
+            elem = browser.find_element(By.NAME, 'q')
+            elem.clear()
+            elem.send_keys(input_data)
+
         search = browser.find_element(By.ID, 'searchButton')
-        search.click()
+        try:
+            ## click search button
+            search.click()
+        except:
+            search = browser.find_element(By.ID, 'searchButton')
+            search.click()
+
         links = browser.find_elements(By.ID, 'link')
-        for link in links:
-            print(link.get_attribute('href'))
+        try:
+            for link in links:
+                if link.get_attribute('href')!= None:
+                    print(link.get_attribute('href'))
+        except:
+            links = browser.find_elements(By.ID, 'link')
+            for link in links:
+                if link.get_attribute('href')!= None:
+                    print(link.get_attribute('href'))
+                    
     ## exit once quit is input
     exit()
 control()
