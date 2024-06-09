@@ -11,6 +11,7 @@ Consideration:
     - Keyword Search: Allow users to search for patents related to specific keywords or technologies.
     - Advanced Filters: Enable filtering by patent type (utility, design, plant), filing date, inventor, assignee, etc.
     - Graphical Visualization: Create visualizations (e.g., graphs, charts) based on patent data trends.
+    - Display data in a table for the user to visualize
 
 3. Make a interactive website interface that the users can interact with. We will scrap the javafx idea as I feel like hosting this program on a website
     will make alot more sense as the whole project is a browser based application. We are using browser simulation along with webscraping so might as well kepp the 
